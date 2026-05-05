@@ -70,7 +70,26 @@ namespace AcademixPro.Forms
             LoadDepts(); LoadInstructors(); LoadData();
         }
 
-        private void LoadData() { dgvCourses.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Courses.GetAll); if (dgvCourses.Columns.Contains("CourseID")) dgvCourses.Columns["CourseID"].Visible = false; }
+        private void LoadData()
+        {
+            dgvCourses.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Courses.GetAll);
+            if (dgvCourses.Columns.Contains("CourseID")) dgvCourses.Columns["CourseID"].Visible = false;
+            var map = new Dictionary<string, string>
+            {
+                ["CourseCode"]   = "Course Code",
+                ["CourseName"]   = "Course Name",
+                ["CreditHours"]  = "Credits",
+                ["Department"]   = "Department",
+                ["Instructor"]   = "Instructor",
+                ["Semester"]     = "Semester",
+                ["Capacity"]     = "Capacity",
+                ["Enrolled"]     = "Enrolled",
+                ["IsActive"]     = "Active",
+            };
+            foreach (var kv in map)
+                if (dgvCourses.Columns.Contains(kv.Key))
+                    dgvCourses.Columns[kv.Key].HeaderText = kv.Value;
+        }
         private void LoadDepts() { var dt = DatabaseHelper.ExecuteQuery(SqlQueries.Departments.GetForDropdown); cmbDept.DataSource = dt; cmbDept.DisplayMember = "DeptName"; cmbDept.ValueMember = "DeptID"; }
         private void LoadInstructors() { var dt = DatabaseHelper.ExecuteQuery("SELECT InstructorID, FullName FROM Instructors WHERE IsActive=1 ORDER BY FullName"); cmbInstructor.DataSource = dt; cmbInstructor.DisplayMember = "FullName"; cmbInstructor.ValueMember = "InstructorID"; }
 

@@ -26,7 +26,6 @@ namespace AcademixPro.Forms
         {
             Controls.Clear();
 
-            // ── Top bar: Search + Add ─────────────────────────────────
             var topPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -39,7 +38,7 @@ namespace AcademixPro.Forms
             {
                 Size = new Size(320, 36),
                 Location = new Point(0, 10),
-                PlaceholderText = "🔍 Search by name, code, or email...",
+                PlaceholderText = "🔍 Search by Student ID (e.g. STU-2024-001)...",
                 Font = new Font("Segoe UI", 10.5f),
                 BackColor = AppColors.SurfaceLight,
                 ForeColor = AppColors.TextPrimary,
@@ -56,7 +55,6 @@ namespace AcademixPro.Forms
 
             Controls.Add(topPanel);
 
-            // ── Split: Grid left, Form right ──────────────────────────
             var splitContainer = new SplitContainer
             {
                 Dock = DockStyle.Fill,
@@ -68,7 +66,6 @@ namespace AcademixPro.Forms
             splitContainer.Panel2.BackColor = AppColors.Background;
             Controls.Add(splitContainer);
             topPanel.BringToFront();
-            // Defer splitter distance until control is sized
             splitContainer.SizeChanged += (_, __) =>
             {
                 int target = (int)(splitContainer.Width * 0.6);
@@ -232,6 +229,29 @@ namespace AcademixPro.Forms
             dgvStudents.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Students.GetAll);
             if (dgvStudents.Columns.Contains("StudentID"))
                 dgvStudents.Columns["StudentID"].Visible = false;
+            ApplyStudentColumnHeaders();
+        }
+
+        private void ApplyStudentColumnHeaders()
+        {
+            var map = new Dictionary<string, string>
+            {
+                ["StudentCode"]   = "Student ID",
+                ["FullName"]      = "Full Name",
+                ["Email"]         = "Email",
+                ["Phone"]         = "Phone",
+                ["DateOfBirth"]   = "Date of Birth",
+                ["Gender"]        = "Gender",
+                ["Address"]       = "Address",
+                ["Department"]    = "Department",
+                ["Semester"]      = "Semester",
+                ["CGPA"]          = "CGPA",
+                ["AdmissionDate"] = "Admission Date",
+                ["IsActive"]      = "Active",
+            };
+            foreach (var kv in map)
+                if (dgvStudents.Columns.Contains(kv.Key))
+                    dgvStudents.Columns[kv.Key].HeaderText = kv.Value;
         }
 
         private void LoadDepartments()
@@ -255,6 +275,9 @@ namespace AcademixPro.Forms
 
             var parms = new[] { new SqlParameter("@Term", "%" + term + "%") };
             dgvStudents.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Students.Search, parms);
+            if (dgvStudents.Columns.Contains("StudentID"))
+                dgvStudents.Columns["StudentID"].Visible = false;
+            ApplyStudentColumnHeaders();
         }
 
         // ── Selection Changed ─────────────────────────────────────────

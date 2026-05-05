@@ -85,6 +85,16 @@ namespace AcademixPro.Forms
         {
             dgvDepts.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Departments.GetAll);
             if (dgvDepts.Columns.Contains("DeptID")) dgvDepts.Columns["DeptID"].Visible = false;
+            var map = new Dictionary<string, string>
+            {
+                ["DeptName"]    = "Department Name",
+                ["DeptCode"]    = "Code",
+                ["Description"] = "Description",
+                ["CreatedAt"]   = "Created On",
+            };
+            foreach (var kv in map)
+                if (dgvDepts.Columns.Contains(kv.Key))
+                    dgvDepts.Columns[kv.Key].HeaderText = kv.Value;
         }
 
         private void Clear() { _selectedId = 0; txtName.Clear(); txtCode.Clear(); txtDesc.Clear(); }

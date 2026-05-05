@@ -76,6 +76,15 @@ namespace AcademixPro.Forms
             dgvNotifications.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Notifications.GetUnread);
             if (dgvNotifications.Columns.Contains("NotifID"))
                 dgvNotifications.Columns["NotifID"].Visible = false;
+            var map = new Dictionary<string, string>
+            {
+                ["Title"]     = "Title",
+                ["Message"]   = "Message",
+                ["CreatedAt"] = "Sent At",
+            };
+            foreach (var kv in map)
+                if (dgvNotifications.Columns.Contains(kv.Key))
+                    dgvNotifications.Columns[kv.Key].HeaderText = kv.Value;
         }
 
         private void BtnMarkRead_Click(object? sender, EventArgs e)

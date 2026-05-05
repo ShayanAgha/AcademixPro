@@ -147,6 +147,19 @@ namespace AcademixPro.Forms
             dgvUsers.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Auth.GetAllUsers);
             if (dgvUsers.Columns.Contains("UserID"))
                 dgvUsers.Columns["UserID"].Visible = false;
+            var map = new Dictionary<string, string>
+            {
+                ["Username"]  = "Username",
+                ["FullName"]  = "Full Name",
+                ["Email"]     = "Email",
+                ["Role"]      = "Role",
+                ["IsActive"]  = "Active",
+                ["LastLogin"] = "Last Login",
+                ["CreatedAt"] = "Created On",
+            };
+            foreach (var kv in map)
+                if (dgvUsers.Columns.Contains(kv.Key))
+                    dgvUsers.Columns[kv.Key].HeaderText = kv.Value;
         }
 
         private void BtnAdd_Click(object? sender, EventArgs e)

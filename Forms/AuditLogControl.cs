@@ -64,6 +64,18 @@ namespace AcademixPro.Forms
             dgvLog.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.AuditLog.GetAll);
             if (dgvLog.Columns.Contains("LogID"))
                 dgvLog.Columns["LogID"].Visible = false;
+            var map = new Dictionary<string, string>
+            {
+                ["TableName"]  = "Table",
+                ["Action"]     = "Action",
+                ["RecordID"]   = "Record ID",
+                ["ChangedBy"]  = "Changed By",
+                ["ChangeTime"] = "Timestamp",
+                ["Details"]    = "Details",
+            };
+            foreach (var kv in map)
+                if (dgvLog.Columns.Contains(kv.Key))
+                    dgvLog.Columns[kv.Key].HeaderText = kv.Value;
         }
     }
 }

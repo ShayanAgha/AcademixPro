@@ -20,7 +20,6 @@ namespace AcademixPro.Forms
         {
             Controls.Clear();
 
-            // Top form
             var formPanel = new Panel { Dock = DockStyle.Top, Height = 180, BackColor = AppColors.Surface, Padding = new Padding(20) };
             Controls.Add(formPanel);
             formPanel.Controls.Add(new Label { Text = "Enter / Update Results", Font = new Font("Segoe UI Semibold", 14, FontStyle.Bold), ForeColor = AppColors.TextPrimary, AutoSize = true, Location = new Point(20, 10), BackColor = Color.Transparent });
@@ -63,7 +62,6 @@ namespace AcademixPro.Forms
         private void LoadEnrollments()
         {
             var dt = DatabaseHelper.ExecuteQuery(SqlQueries.Results.GetEnrollmentsWithoutResult);
-            // Create a combined display
             if (!dt.Columns.Contains("Display"))
             {
                 dt.Columns.Add("Display", typeof(string));
@@ -77,6 +75,23 @@ namespace AcademixPro.Forms
         {
             dgvResults.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Results.GetAll);
             if (dgvResults.Columns.Contains("ResultID")) dgvResults.Columns["ResultID"].Visible = false;
+            var map = new Dictionary<string, string>
+            {
+                ["StudentCode"]  = "Student ID",
+                ["StudentName"]  = "Student Name",
+                ["CourseCode"]   = "Course Code",
+                ["CourseName"]   = "Course Name",
+                ["Assignments"]  = "Assignments",
+                ["Midterm"]      = "Midterm",
+                ["FinalExam"]    = "Final Exam",
+                ["TotalMarks"]   = "Total Marks",
+                ["Grade"]        = "Grade",
+                ["GradePoints"]  = "GPA Points",
+                ["IsLocked"]     = "Locked",
+            };
+            foreach (var kv in map)
+                if (dgvResults.Columns.Contains(kv.Key))
+                    dgvResults.Columns[kv.Key].HeaderText = kv.Value;
         }
 
         private void BtnSave_Click(object? s, EventArgs e)
@@ -91,7 +106,6 @@ namespace AcademixPro.Forms
 
             if (DatabaseHelper.ExecuteNonQuery(SqlQueries.Results.Insert, p) > 0)
             {
-                // Get the ResultID just inserted and assign grade
                 var resultId = DatabaseHelper.ExecuteScalar("SELECT MAX(ResultID) FROM Results WHERE EnrollmentID=@EID", new[] { new SqlParameter("@EID", enrollId) });
                 if (resultId != null)
                     DatabaseHelper.ExecuteSP(SqlQueries.Results.AssignGradeSP, new[] { new SqlParameter("@ResultID", Convert.ToInt32(resultId)) });

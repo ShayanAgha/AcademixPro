@@ -19,7 +19,6 @@ namespace AcademixPro.Forms
         {
             Controls.Clear();
 
-            // Form panel at top
             var formPanel = new Panel { Dock = DockStyle.Top, Height = 160, BackColor = AppColors.Surface, Padding = new Padding(20) };
             Controls.Add(formPanel);
 
@@ -78,6 +77,18 @@ namespace AcademixPro.Forms
         {
             dgvEnrollments.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Enrollments.GetAll);
             if (dgvEnrollments.Columns.Contains("EnrollmentID")) dgvEnrollments.Columns["EnrollmentID"].Visible = false;
+            var map = new Dictionary<string, string>
+            {
+                ["StudentCode"] = "Student ID",
+                ["StudentName"] = "Student Name",
+                ["CourseCode"]  = "Course Code",
+                ["CourseName"]  = "Course Name",
+                ["EnrollDate"]  = "Enrolled On",
+                ["Status"]      = "Status",
+            };
+            foreach (var kv in map)
+                if (dgvEnrollments.Columns.Contains(kv.Key))
+                    dgvEnrollments.Columns[kv.Key].HeaderText = kv.Value;
         }
 
         private void BtnEnroll_Click(object? s, EventArgs e)
@@ -102,6 +113,11 @@ namespace AcademixPro.Forms
             if (MessageBox.Show("Drop this enrollment?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
             DatabaseHelper.ExecuteNonQuery(SqlQueries.Enrollments.DropCourse, new[] { new SqlParameter("@EnrollmentID", id) });
             LoadData();
+        }
+
+        private void InitializeComponent()
+        {
+
         }
 
         private Label FL(string t, int x, int y) => new() { Text = t, Font = new Font("Segoe UI", 9), ForeColor = AppColors.TextSecondary, Location = new Point(x, y), AutoSize = true, BackColor = Color.Transparent };

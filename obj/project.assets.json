@@ -476,11 +476,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\EduManage\\AcademixPro.csproj",
+      "projectUniqueName": "D:\\Projects\\AcademixPro\\AcademixPro.csproj",
       "projectName": "AcademixPro",
-      "projectPath": "D:\\Projects\\EduManage\\AcademixPro.csproj",
+      "projectPath": "D:\\Projects\\AcademixPro\\AcademixPro.csproj",
       "packagesPath": "C:\\Users\\uk\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\EduManage\\obj\\",
+      "outputPath": "D:\\Projects\\AcademixPro\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

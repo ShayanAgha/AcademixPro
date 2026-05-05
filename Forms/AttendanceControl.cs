@@ -10,6 +10,7 @@ namespace AcademixPro.Forms
         private ComboBox cmbCourse = null!;
         private DataGridView dgvMark = null!;
         private DateTimePicker dtpDate = null!;
+        private TabControl tabMain = null!;
 
         public AttendanceControl()
         {
@@ -21,60 +22,179 @@ namespace AcademixPro.Forms
         {
             Controls.Clear();
 
-            // Top form panel
-            var formPanel = new Panel { Dock = DockStyle.Top, Height = 120, BackColor = AppColors.Surface, Padding = new Padding(20) };
-            Controls.Add(formPanel);
-            formPanel.Controls.Add(new Label { Text = "Mark / View Attendance", Font = new Font("Segoe UI Semibold", 14, FontStyle.Bold), ForeColor = AppColors.TextPrimary, AutoSize = true, Location = new Point(20, 10), BackColor = Color.Transparent });
+            // ── Header bar ────────────────────────────────────────────
+            var header = new Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 60,
+                BackColor = AppColors.Surface,
+                Padding = new Padding(16, 0, 16, 0),
+            };
 
-            formPanel.Controls.Add(FL("Select Course", 20, 48));
-            cmbCourse = new ComboBox { Location = new Point(20, 70), Size = new Size(340, 30) };
+            header.Controls.Add(new Label
+            {
+                Text = "Attendance Management",
+                Font = new Font("Segoe UI Semibold", 14, FontStyle.Bold),
+                ForeColor = AppColors.TextPrimary,
+                AutoSize = true,
+                Location = new Point(16, 16),
+                BackColor = Color.Transparent,
+            });
+            Controls.Add(header);
+
+            // ── Filter bar ────────────────────────────────────────────
+            var filterBar = new Panel
+            {
+                Dock = DockStyle.Top,
+                Height = 68,
+                BackColor = AppColors.SurfaceLight,
+                Padding = new Padding(16, 8, 16, 8),
+            };
+
+            // Course label + combo
+            filterBar.Controls.Add(new Label
+            {
+                Text = "Course:",
+                Font = new Font("Segoe UI", 9),
+                ForeColor = AppColors.TextSecondary,
+                Location = new Point(16, 10),
+                AutoSize = true,
+                BackColor = Color.Transparent,
+            });
+
+            cmbCourse = new ComboBox
+            {
+                Location = new Point(16, 28),
+                Size = new Size(360, 30),
+                DropDownStyle = ComboBoxStyle.DropDownList,
+            };
             UIHelper.StyleComboBox(cmbCourse);
             cmbCourse.SelectedIndexChanged += (_, __) => LoadAttendance();
-            formPanel.Controls.Add(cmbCourse);
+            filterBar.Controls.Add(cmbCourse);
 
-            formPanel.Controls.Add(FL("Date", 380, 48));
+            // Date label + picker
+            filterBar.Controls.Add(new Label
+            {
+                Text = "Date:",
+                Font = new Font("Segoe UI", 9),
+                ForeColor = AppColors.TextSecondary,
+                Location = new Point(392, 10),
+                AutoSize = true,
+                BackColor = Color.Transparent,
+            });
+
             dtpDate = UIHelper.CreateDatePicker();
-            dtpDate.Location = new Point(380, 70); dtpDate.Size = new Size(180, 30);
-            formPanel.Controls.Add(dtpDate);
+            dtpDate.Location = new Point(392, 28);
+            dtpDate.Size = new Size(160, 30);
+            filterBar.Controls.Add(dtpDate);
 
-            var btnMark = UIHelper.CreateButton("✅ Mark Attendance", AppColors.Primary, 180, 38);
-            btnMark.Location = new Point(580, 70); btnMark.Click += BtnMark_Click;
-            formPanel.Controls.Add(btnMark);
+            // Mark Attendance button
+            var btnMark = UIHelper.CreateButton("✅  Mark Attendance", AppColors.Primary, 180, 36);
+            btnMark.Location = new Point(568, 24);
+            btnMark.Click += BtnMark_Click;
+            filterBar.Controls.Add(btnMark);
 
-            var btnSummary = UIHelper.CreateButton("📊 Summary", AppColors.CardPurple, 130, 38);
-            btnSummary.Location = new Point(770, 70); btnSummary.Click += BtnSummary_Click;
-            formPanel.Controls.Add(btnSummary);
+            // Summary button
+            var btnSummary = UIHelper.CreateButton("📊  Summary", AppColors.CardPurple, 130, 36);
+            btnSummary.Location = new Point(758, 24);
+            btnSummary.Click += BtnSummary_Click;
+            filterBar.Controls.Add(btnSummary);
 
-            // Split for marking (left) and history (right)
-            var split = new SplitContainer { Dock = DockStyle.Fill, Orientation = Orientation.Vertical, SplitterDistance = 450, SplitterWidth = 8 };
-            split.Panel1.BackColor = AppColors.Background; split.Panel2.BackColor = AppColors.Background;
-            Controls.Add(split); formPanel.BringToFront();
+            // Refresh button
+            var btnRefresh = UIHelper.CreateButton("↻ Refresh", AppColors.SurfaceLight, 100, 36);
+            btnRefresh.ForeColor = AppColors.TextSecondary;
+            btnRefresh.Location = new Point(898, 24);
+            btnRefresh.Click += (_, __) => LoadAttendance();
+            filterBar.Controls.Add(btnRefresh);
 
-            // Mark grid (editable)
+            Controls.Add(filterBar);
+            header.BringToFront();
+            filterBar.BringToFront();
+
+            // ── Tab control ───────────────────────────────────────────
+            tabMain = new TabControl
+            {
+                Dock = DockStyle.Fill,
+                Font = new Font("Segoe UI", 10),
+            };
+            tabMain.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabMain.ItemSize = new Size(160, 36);
+            tabMain.SizeMode = TabSizeMode.Fixed;
+            tabMain.DrawItem += TabMain_DrawItem;
+            Controls.Add(tabMain);
+
+            // Tab 1 – Mark Attendance
+            var tabMark = new TabPage
+            {
+                Text = "📋  Mark Attendance",
+                BackColor = AppColors.Background,
+                Padding = new Padding(8),
+            };
+
+            // Instruction label
+            var lblHint = new Label
+            {
+                Text = "Select a course above, then choose Present / Absent / Late for each student and click Mark Attendance.",
+                Font = new Font("Segoe UI", 9),
+                ForeColor = AppColors.TextMuted,
+                Dock = DockStyle.Top,
+                Height = 28,
+                BackColor = Color.Transparent,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Padding = new Padding(4, 0, 0, 0),
+            };
+            tabMark.Controls.Add(lblHint);
+
             dgvMark = new DataGridView { Dock = DockStyle.Fill };
             UIHelper.StyleDataGrid(dgvMark);
             dgvMark.ReadOnly = false;
             dgvMark.AllowUserToAddRows = false;
-            split.Panel1.Controls.Add(dgvMark);
+            dgvMark.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvMark.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabMark.Controls.Add(dgvMark);
+            lblHint.BringToFront();
+            tabMain.TabPages.Add(tabMark);
 
-            // Title for mark panel
-            var lblMark = new Label { Text = "📋 Enrolled Students", Font = new Font("Segoe UI Semibold", 11, FontStyle.Bold), ForeColor = AppColors.TextPrimary, Dock = DockStyle.Top, Height = 32, BackColor = AppColors.SurfaceLight, TextAlign = ContentAlignment.MiddleLeft, Padding = new Padding(12, 0, 0, 0) };
-            split.Panel1.Controls.Add(lblMark); lblMark.BringToFront();
+            // Tab 2 – History
+            var tabHistory = new TabPage
+            {
+                Text = "📜  Attendance History",
+                BackColor = AppColors.Background,
+                Padding = new Padding(8),
+            };
 
-            // History grid
             dgvAttendance = new DataGridView { Dock = DockStyle.Fill };
             UIHelper.StyleDataGrid(dgvAttendance);
-            split.Panel2.Controls.Add(dgvAttendance);
-            var lblHist = new Label { Text = "📜 Attendance History", Font = new Font("Segoe UI Semibold", 11, FontStyle.Bold), ForeColor = AppColors.TextPrimary, Dock = DockStyle.Top, Height = 32, BackColor = AppColors.SurfaceLight, TextAlign = ContentAlignment.MiddleLeft, Padding = new Padding(12, 0, 0, 0) };
-            split.Panel2.Controls.Add(lblHist); lblHist.BringToFront();
+            dgvAttendance.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tabHistory.Controls.Add(dgvAttendance);
+            tabMain.TabPages.Add(tabHistory);
+
+            // bring to correct z-order
+            tabMain.SendToBack();
 
             LoadCourses();
+        }
+
+        private void TabMain_DrawItem(object? sender, DrawItemEventArgs e)
+        {
+            var tab = tabMain.TabPages[e.Index];
+            var g = e.Graphics;
+            bool selected = e.Index == tabMain.SelectedIndex;
+
+            using var bgBrush = new SolidBrush(selected ? AppColors.Primary : AppColors.SurfaceLight);
+            g.FillRectangle(bgBrush, e.Bounds);
+
+            using var textBrush = new SolidBrush(selected ? Color.White : AppColors.TextSecondary);
+            var sf = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+            g.DrawString(tab.Text, new Font("Segoe UI", 9.5f, selected ? FontStyle.Bold : FontStyle.Regular), textBrush, e.Bounds, sf);
         }
 
         private void LoadCourses()
         {
             var dt = DatabaseHelper.ExecuteQuery(SqlQueries.Courses.GetForDropdown);
-            cmbCourse.DataSource = dt; cmbCourse.DisplayMember = "Display"; cmbCourse.ValueMember = "CourseID";
+            cmbCourse.DataSource = dt;
+            cmbCourse.DisplayMember = "Display";
+            cmbCourse.ValueMember = "CourseID";
         }
 
         private void LoadAttendance()
@@ -82,38 +202,124 @@ namespace AcademixPro.Forms
             if (cmbCourse.SelectedValue == null || cmbCourse.SelectedValue is DataRowView) return;
             int courseId = Convert.ToInt32(cmbCourse.SelectedValue);
 
-            // Load enrolled students for marking
-            var enrolled = DatabaseHelper.ExecuteQuery(SqlQueries.Attendance.GetEnrolledForCourse, new[] { new SqlParameter("@CourseID", courseId) });
-            // Add Status column for marking
+            // ── Enrolled students for marking ──────────────────────────
+            var enrolled = DatabaseHelper.ExecuteQuery(
+                SqlQueries.Attendance.GetEnrolledForCourse,
+                new[] { new SqlParameter("@CourseID", courseId) });
+
             if (!enrolled.Columns.Contains("Status"))
             {
                 enrolled.Columns.Add("Status", typeof(string));
                 foreach (DataRow r in enrolled.Rows) r["Status"] = "Present";
             }
             if (!enrolled.Columns.Contains("Remarks"))
-            {
                 enrolled.Columns.Add("Remarks", typeof(string));
-            }
-            dgvMark.DataSource = enrolled;
-            if (dgvMark.Columns.Contains("EnrollmentID")) dgvMark.Columns["EnrollmentID"].Visible = false;
-            if (dgvMark.Columns.Contains("StudentCode")) dgvMark.Columns["StudentCode"].ReadOnly = true;
-            if (dgvMark.Columns.Contains("StudentName")) dgvMark.Columns["StudentName"].ReadOnly = true;
 
-            // Load history
-            var history = DatabaseHelper.ExecuteQuery(SqlQueries.Attendance.GetByCourse, new[] { new SqlParameter("@CourseID", courseId) });
+            // Rebind without triggering column rebuild if not needed
+            dgvMark.DataSource = null;
+            dgvMark.Columns.Clear();
+            dgvMark.DataSource = enrolled;
+
+            // Hide internal ID
+            if (dgvMark.Columns.Contains("EnrollmentID"))
+                dgvMark.Columns["EnrollmentID"].Visible = false;
+
+            // Friendly headers + read-only columns
+            if (dgvMark.Columns.Contains("StudentCode"))
+            {
+                dgvMark.Columns["StudentCode"].HeaderText = "Student ID";
+                dgvMark.Columns["StudentCode"].ReadOnly = true;
+                dgvMark.Columns["StudentCode"].Width = 120;
+            }
+            if (dgvMark.Columns.Contains("StudentName"))
+            {
+                dgvMark.Columns["StudentName"].HeaderText = "Student Name";
+                dgvMark.Columns["StudentName"].ReadOnly = true;
+                dgvMark.Columns["StudentName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+            // Replace Status text column with a ComboBox column
+            if (dgvMark.Columns.Contains("Status"))
+            {
+                int statusIdx = dgvMark.Columns["Status"].Index;
+                dgvMark.Columns.RemoveAt(statusIdx);
+
+                var cmbCol = new DataGridViewComboBoxColumn
+                {
+                    Name = "Status",
+                    HeaderText = "Status",
+                    DataPropertyName = "Status",
+                    Width = 130,
+                    FlatStyle = FlatStyle.Flat,
+                    DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox,
+                    DisplayIndex = statusIdx,
+                };
+                cmbCol.Items.AddRange("Present", "Absent", "Late");
+                dgvMark.Columns.Insert(statusIdx, cmbCol);
+
+                // Set default value in all rows
+                foreach (DataGridViewRow row in dgvMark.Rows)
+                {
+                    if (row.Cells["Status"].Value == null || row.Cells["Status"].Value == DBNull.Value)
+                        row.Cells["Status"].Value = "Present";
+                }
+            }
+
+            if (dgvMark.Columns.Contains("Remarks"))
+            {
+                dgvMark.Columns["Remarks"].HeaderText = "Remarks (optional)";
+                dgvMark.Columns["Remarks"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+            // ── History ────────────────────────────────────────────────
+            var history = DatabaseHelper.ExecuteQuery(
+                SqlQueries.Attendance.GetByCourse,
+                new[] { new SqlParameter("@CourseID", courseId) });
+
             dgvAttendance.DataSource = history;
-            if (dgvAttendance.Columns.Contains("AttendanceID")) dgvAttendance.Columns["AttendanceID"].Visible = false;
-            if (dgvAttendance.Columns.Contains("EnrollmentID")) dgvAttendance.Columns["EnrollmentID"].Visible = false;
+            if (dgvAttendance.Columns.Contains("AttendanceID"))
+                dgvAttendance.Columns["AttendanceID"].Visible = false;
+            if (dgvAttendance.Columns.Contains("EnrollmentID"))
+                dgvAttendance.Columns["EnrollmentID"].Visible = false;
+
+            // Friendly headers for history
+            var histMap = new Dictionary<string, string>
+            {
+                ["StudentCode"]  = "Student ID",
+                ["StudentName"]  = "Student Name",
+                ["AttendDate"]   = "Date",
+                ["Status"]       = "Status",
+                ["Remarks"]      = "Remarks",
+            };
+            foreach (var kv in histMap)
+                if (dgvAttendance.Columns.Contains(kv.Key))
+                    dgvAttendance.Columns[kv.Key].HeaderText = kv.Value;
         }
 
         private void BtnMark_Click(object? s, EventArgs e)
         {
-            if (dgvMark.Rows.Count == 0) { MessageBox.Show("No students to mark."); return; }
+            if (dgvMark.Rows.Count == 0) { MessageBox.Show("No students to mark. Select a course first.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+
+            // Commit any in-progress cell edit
+            dgvMark.EndEdit();
 
             int count = 0;
+            var errors = new List<string>();
+
             foreach (DataGridViewRow row in dgvMark.Rows)
             {
-                int enrollId = Convert.ToInt32(row.Cells["EnrollmentID"].Value);
+                if (row.IsNewRow) continue;
+
+                object? enrollVal = null;
+                // Try DataPropertyName binding first
+                if (row.DataBoundItem is DataRowView drv && drv.Row.Table.Columns.Contains("EnrollmentID"))
+                    enrollVal = drv["EnrollmentID"];
+                else
+                    enrollVal = dgvMark.Columns.Contains("EnrollmentID") ? row.Cells["EnrollmentID"].Value : null;
+
+                if (enrollVal == null || enrollVal == DBNull.Value) continue;
+                int enrollId = Convert.ToInt32(enrollVal);
+
                 string status = row.Cells["Status"].Value?.ToString() ?? "Present";
                 if (status != "Present" && status != "Absent" && status != "Late") status = "Present";
                 string remarks = row.Cells["Remarks"].Value?.ToString() ?? "";
@@ -126,19 +332,46 @@ namespace AcademixPro.Forms
                     new("@MarkedBy", Session.UserID),
                     new("@Remarks", remarks),
                 };
-                if (DatabaseHelper.ExecuteNonQuery(SqlQueries.Attendance.Insert, p) > 0) count++;
+                try
+                {
+                    if (DatabaseHelper.ExecuteNonQuery(SqlQueries.Attendance.Insert, p) > 0) count++;
+                }
+                catch (Exception ex)
+                {
+                    errors.Add(ex.Message);
+                }
             }
 
-            MessageBox.Show($"Attendance marked for {count} students.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (errors.Count > 0)
+                MessageBox.Show($"Marked {count} students.\nErrors: {string.Join("\n", errors)}", "Partial Success", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                MessageBox.Show($"Attendance marked for {count} student(s).", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             LoadAttendance();
+            // Switch to history tab
+            tabMain.SelectedIndex = 1;
         }
 
         private void BtnSummary_Click(object? s, EventArgs e)
         {
             var dt = DatabaseHelper.ExecuteQuery(SqlQueries.Attendance.GetSummary);
             dgvAttendance.DataSource = dt;
-        }
 
-        private Label FL(string t, int x, int y) => new() { Text = t, Font = new Font("Segoe UI", 9), ForeColor = AppColors.TextSecondary, Location = new Point(x, y), AutoSize = true, BackColor = Color.Transparent };
+            // Friendly headers for summary
+            var sumMap = new Dictionary<string, string>
+            {
+                ["StudentCode"]  = "Student ID",
+                ["StudentName"]  = "Student Name",
+                ["CourseName"]   = "Course",
+                ["TotalClasses"] = "Total Classes",
+                ["Attended"]     = "Attended",
+                ["Percentage"]   = "Attendance %",
+            };
+            foreach (var kv in sumMap)
+                if (dgvAttendance.Columns.Contains(kv.Key))
+                    dgvAttendance.Columns[kv.Key].HeaderText = kv.Value;
+
+            tabMain.SelectedIndex = 1;
+        }
     }
 }

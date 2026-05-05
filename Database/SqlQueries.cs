@@ -49,13 +49,15 @@ namespace AcademixPro
                   WHERE s.StudentID = @StudentID";
 
             public const string Search =
-                @"SELECT s.StudentID, s.StudentCode, s.FullName, s.Email,
-                         d.DeptName AS Department, s.Semester, s.CGPA, s.IsActive
+                @"SELECT s.StudentID, s.StudentCode, s.FullName, s.Email, s.Phone,
+                         s.DateOfBirth, s.Gender, s.Address,
+                         d.DeptName AS Department, s.Semester, s.CGPA,
+                         s.AdmissionDate, s.IsActive
                   FROM Students s
                   LEFT JOIN Departments d ON s.DeptID = d.DeptID
                   WHERE s.IsActive = 1
-                    AND (s.FullName LIKE @Term OR s.StudentCode LIKE @Term OR s.Email LIKE @Term)
-                  ORDER BY s.FullName";
+                    AND (s.StudentCode LIKE @Term)
+                  ORDER BY s.StudentCode";
 
             public const string Insert =
                 @"INSERT INTO Students

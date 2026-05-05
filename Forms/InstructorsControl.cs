@@ -145,6 +145,26 @@ namespace AcademixPro.Forms
             dgvInstructors.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Instructors.GetAll);
             if (dgvInstructors.Columns.Contains("InstructorID"))
                 dgvInstructors.Columns["InstructorID"].Visible = false;
+            ApplyColumnHeaders();
+        }
+
+        private void ApplyColumnHeaders()
+        {
+            var map = new Dictionary<string, string>
+            {
+                ["InstructorCode"]   = "Instructor ID",
+                ["FullName"]         = "Full Name",
+                ["Email"]            = "Email",
+                ["Phone"]            = "Phone",
+                ["Specialization"]   = "Specialization",
+                ["Department"]       = "Department",
+                ["JoiningDate"]      = "Joining Date",
+                ["IsActive"]         = "Active",
+                ["CoursesAssigned"]  = "Courses",
+            };
+            foreach (var kv in map)
+                if (dgvInstructors.Columns.Contains(kv.Key))
+                    dgvInstructors.Columns[kv.Key].HeaderText = kv.Value;
         }
 
         private void LoadDepartments()

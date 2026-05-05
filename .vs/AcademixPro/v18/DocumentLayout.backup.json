@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\enrollmentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\enrollmentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\enrollmentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\resultscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\resultscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,6 +29,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|D:\\Projects\\AcademixPro\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\mainform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\mainform.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|D:\\Projects\\AcademixPro\\forms\\attendancecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -59,7 +67,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "EnrollmentsControl.cs [Design]",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\EnrollmentsControl.cs",
+              "RelativeDocumentMoniker": "Forms\\EnrollmentsControl.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\EnrollmentsControl.cs [Design]",
+              "RelativeToolTip": "Forms\\EnrollmentsControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T14:10:09.203Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "StudentsControl.cs",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\StudentsControl.cs",
               "RelativeDocumentMoniker": "Forms\\StudentsControl.cs",
@@ -84,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ResultsControl.cs",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\ResultsControl.cs",
               "RelativeDocumentMoniker": "Forms\\ResultsControl.cs",
@@ -97,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "NotificationsControl.cs",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\NotificationsControl.cs",
               "RelativeDocumentMoniker": "Forms\\NotificationsControl.cs",
@@ -109,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MainForm.cs",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Forms\\MainForm.cs",
@@ -123,6 +143,17 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "MainForm.resx",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\MainForm.resx",
+              "RelativeDocumentMoniker": "Forms\\MainForm.resx",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\MainForm.resx",
+              "RelativeToolTip": "Forms\\MainForm.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-05-04T10:58:06.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "CoursesControl.cs [Design]",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\CoursesControl.cs",
               "RelativeDocumentMoniker": "Forms\\CoursesControl.cs",
@@ -133,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Forms\\MainForm.cs",
@@ -144,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "AttendanceControl.cs [Design]",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\AttendanceControl.cs",
               "RelativeDocumentMoniker": "Forms\\AttendanceControl.cs",

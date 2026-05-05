@@ -42,3 +42,4 @@ D:\Projects\AcademixPro\obj\Debug\net8.0-windows\refint\AcademixPro.dll
 D:\Projects\AcademixPro\obj\Debug\net8.0-windows\AcademixPro.pdb
 D:\Projects\AcademixPro\obj\Debug\net8.0-windows\AcademixPro.genruntimeconfig.cache
 D:\Projects\AcademixPro\obj\Debug\net8.0-windows\ref\AcademixPro.dll
+D:\Projects\AcademixPro\obj\Debug\net8.0-windows\AcademixPro.sourcelink.json
