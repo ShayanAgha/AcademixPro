@@ -18,7 +18,6 @@ namespace AcademixPro.Forms
         {
             Controls.Clear();
 
-            // ── Top bar ───────────────────────────────────────────────
             var topPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -34,7 +33,6 @@ namespace AcademixPro.Forms
 
             Controls.Add(topPanel);
 
-            // ── Info label ────────────────────────────────────────────
             var lblInfo = new Label
             {
                 Text = "🧾 Audit log captures all INSERT, UPDATE, and DELETE operations on the Students table via database triggers.",
@@ -48,7 +46,6 @@ namespace AcademixPro.Forms
             };
             Controls.Add(lblInfo);
 
-            // ── Grid ──────────────────────────────────────────────────
             dgvLog = new DataGridView { Dock = DockStyle.Fill };
             UIHelper.StyleDataGrid(dgvLog);
             Controls.Add(dgvLog);

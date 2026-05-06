@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AcademixPro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a057fe652ee758a5810e890c31b7037e1f9ebfc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14d9fbff3fe905e96a5341623e3fa254db40d989")]
 [assembly: System.Reflection.AssemblyProductAttribute("AcademixPro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AcademixPro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

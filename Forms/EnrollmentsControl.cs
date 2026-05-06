@@ -58,13 +58,11 @@ namespace AcademixPro.Forms
 
             LoadStudents(); LoadData();
         }
-
         private void LoadStudents()
         {
             var dt = DatabaseHelper.ExecuteQuery("SELECT StudentID, StudentCode + ' - ' + FullName AS Display FROM Students WHERE IsActive=1 ORDER BY FullName");
             cmbStudent.DataSource = dt; cmbStudent.DisplayMember = "Display"; cmbStudent.ValueMember = "StudentID";
         }
-
         private void LoadAvailableCourses()
         {
             if (cmbStudent.SelectedValue == null || cmbStudent.SelectedValue is DataRowView) return;
@@ -72,7 +70,6 @@ namespace AcademixPro.Forms
             var dt = DatabaseHelper.ExecuteQuery(SqlQueries.Enrollments.GetAvailableCourses, p);
             cmbCourse.DataSource = dt; cmbCourse.DisplayMember = "Display"; cmbCourse.ValueMember = "CourseID";
         }
-
         private void LoadData()
         {
             dgvEnrollments.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Enrollments.GetAll);
@@ -81,21 +78,19 @@ namespace AcademixPro.Forms
             {
                 ["StudentCode"] = "Student ID",
                 ["StudentName"] = "Student Name",
-                ["CourseCode"]  = "Course Code",
-                ["CourseName"]  = "Course Name",
-                ["EnrollDate"]  = "Enrolled On",
-                ["Status"]      = "Status",
+                ["CourseCode"] = "Course Code",
+                ["CourseName"] = "Course Name",
+                ["EnrollDate"] = "Enrolled On",
+                ["Status"] = "Status",
             };
             foreach (var kv in map)
                 if (dgvEnrollments.Columns.Contains(kv.Key))
                     dgvEnrollments.Columns[kv.Key].HeaderText = kv.Value;
         }
-
         private void BtnEnroll_Click(object? s, EventArgs e)
         {
             if (cmbStudent.SelectedValue == null || cmbCourse.SelectedValue == null || cmbStudent.SelectedValue is DataRowView || cmbCourse.SelectedValue is DataRowView)
             { MessageBox.Show("Select both student and course."); return; }
-
             var p = new[] { new SqlParameter("@StudentID", cmbStudent.SelectedValue), new SqlParameter("@CourseID", cmbCourse.SelectedValue) };
             try
             {

@@ -24,7 +24,6 @@ namespace AcademixPro.Forms
         {
             Controls.Clear();
 
-            // ── Top bar ───────────────────────────────────────────────
             var topPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -45,7 +44,6 @@ namespace AcademixPro.Forms
 
             Controls.Add(topPanel);
 
-            // ── Split ─────────────────────────────────────────────────
             var split = new SplitContainer
             {
                 Dock = DockStyle.Fill,
@@ -63,12 +61,10 @@ namespace AcademixPro.Forms
                     try { split.SplitterDistance = target; } catch { }
             };
 
-            // Grid
             dgvUsers = new DataGridView { Dock = DockStyle.Fill };
             UIHelper.StyleDataGrid(dgvUsers);
             split.Panel1.Controls.Add(dgvUsers);
 
-            // Form
             var fp = new Panel
             {
                 Dock = DockStyle.Fill,

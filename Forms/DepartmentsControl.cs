@@ -80,7 +80,6 @@ namespace AcademixPro.Forms
 
             LoadData();
         }
-
         private void LoadData()
         {
             dgvDepts.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Departments.GetAll);
@@ -96,7 +95,6 @@ namespace AcademixPro.Forms
                 if (dgvDepts.Columns.Contains(kv.Key))
                     dgvDepts.Columns[kv.Key].HeaderText = kv.Value;
         }
-
         private void Clear() { _selectedId = 0; txtName.Clear(); txtCode.Clear(); txtDesc.Clear(); }
         private Label FL(string t, int x, int y) => new() { Text = t, Font = new Font("Segoe UI", 9), ForeColor = AppColors.TextSecondary, Location = new Point(x, y), AutoSize = true, BackColor = Color.Transparent };
         private TextBox STB(int x, int y, int w) { var tb = new TextBox { Location = new Point(x, y), Size = new Size(w, 30) }; UIHelper.StyleTextBox(tb); return tb; }

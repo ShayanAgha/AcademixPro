@@ -77,17 +77,17 @@ namespace AcademixPro.Forms
             if (dgvResults.Columns.Contains("ResultID")) dgvResults.Columns["ResultID"].Visible = false;
             var map = new Dictionary<string, string>
             {
-                ["StudentCode"]  = "Student ID",
-                ["StudentName"]  = "Student Name",
-                ["CourseCode"]   = "Course Code",
-                ["CourseName"]   = "Course Name",
-                ["Assignments"]  = "Assignments",
-                ["Midterm"]      = "Midterm",
-                ["FinalExam"]    = "Final Exam",
-                ["TotalMarks"]   = "Total Marks",
-                ["Grade"]        = "Grade",
-                ["GradePoints"]  = "GPA Points",
-                ["IsLocked"]     = "Locked",
+                ["StudentCode"] = "Student ID",
+                ["StudentName"] = "Student Name",
+                ["CourseCode"] = "Course Code",
+                ["CourseName"] = "Course Name",
+                ["Assignments"] = "Assignments",
+                ["Midterm"] = "Midterm",
+                ["FinalExam"] = "Final Exam",
+                ["TotalMarks"] = "Total Marks",
+                ["Grade"] = "Grade",
+                ["GradePoints"] = "GPA Points",
+                ["IsLocked"] = "Locked",
             };
             foreach (var kv in map)
                 if (dgvResults.Columns.Contains(kv.Key))

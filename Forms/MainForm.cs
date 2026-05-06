@@ -20,7 +20,6 @@ namespace AcademixPro.Forms
 
         private void InitializeUI()
         {
-            // ── Form Setup ────────────────────────────────────────────
             Text = "AcademixPro — Student Management System";
             Size = new Size(1400, 820);
             MinimumSize = new Size(1200, 700);
@@ -29,16 +28,13 @@ namespace AcademixPro.Forms
             DoubleBuffered = true;
             Font = new Font("Segoe UI", 10);
 
-            // ── Sidebar ───────────────────────────────────────────────
             panelSidebar = new Panel
             {
                 Dock = DockStyle.Left,
                 Width = 250,
                 BackColor = AppColors.Surface,
             };
-            // Note: panelSidebar is added to Controls later in correct dock order
 
-            // Brand
             var panelBrand = new Panel
             {
                 Dock = DockStyle.Top,
@@ -59,11 +55,9 @@ namespace AcademixPro.Forms
             };
             panelBrand.Controls.Add(lblBrand);
 
-            // Separator
             var sep = new Panel { Dock = DockStyle.Top, Height = 1, BackColor = AppColors.Border };
             panelSidebar.Controls.Add(sep);
 
-            // Nav items
             var navPanel = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
@@ -75,7 +69,6 @@ namespace AcademixPro.Forms
             };
             panelSidebar.Controls.Add(navPanel);
 
-            // re-order: brand on top
             panelBrand.BringToFront();
             sep.BringToFront();
 
@@ -93,7 +86,6 @@ namespace AcademixPro.Forms
                 new[] { "🧾", "Audit Log" },
             };
 
-            // Only show user management for Admin
             if (Session.Role == "Admin")
             {
                 navItems = navItems.Append(new[] { "👤", "Users" }).ToArray();
@@ -106,7 +98,6 @@ namespace AcademixPro.Forms
                 navPanel.Controls.Add(btn);
             }
 
-            // ── Sidebar bottom user info ──────────────────────────────
             var panelUser = new Panel
             {
                 Dock = DockStyle.Bottom,
@@ -144,7 +135,6 @@ namespace AcademixPro.Forms
             };
             panelUser.Controls.Add(btnLogout);
 
-            // ── Top Bar ───────────────────────────────────────────────
             panelTopBar = new Panel
             {
                 Dock = DockStyle.Top,
@@ -164,7 +154,6 @@ namespace AcademixPro.Forms
             };
             panelTopBar.Controls.Add(lblPageTitle);
 
-            // Separator below top bar
             var topBarSep = new Panel
             {
                 Dock = DockStyle.Top,
@@ -172,7 +161,6 @@ namespace AcademixPro.Forms
                 BackColor = AppColors.Border,
             };
 
-            // ── Content Area ──────────────────────────────────────────
             panelContent = new Panel
             {
                 Dock = DockStyle.Fill,
@@ -180,14 +168,10 @@ namespace AcademixPro.Forms
                 Padding = new Padding(24),
             };
 
-            // WinForms docks controls from BACK (highest index) to FRONT (index 0).
-            // Sidebar (Left) must be at the back so it docks first at full height.
-            // Content (Fill) must be at the front so it fills remaining space last.
-            // Add order: Content first (front/index 0), then edge controls toward back.
-            Controls.Add(panelContent);    // index 0 — Fill, processed last
-            Controls.Add(topBarSep);       // index 1 — Top
-            Controls.Add(panelTopBar);     // index 2 — Top
-            Controls.Add(panelSidebar);    // index 3 — Left, processed first (full height)
+            Controls.Add(panelContent); 
+            Controls.Add(topBarSep);
+            Controls.Add(panelTopBar);    
+            Controls.Add(panelSidebar);   
         }
 
         private Button CreateNavButton(string icon, string text)
@@ -227,7 +211,6 @@ namespace AcademixPro.Forms
             if (navBtn != null) SetActiveNav(navBtn);
             else
             {
-                // auto-select first button on initial load
                 foreach (Control c in panelSidebar.Controls)
                 {
                     if (c is FlowLayoutPanel fp)
@@ -249,17 +232,17 @@ namespace AcademixPro.Forms
 
             UserControl? content = page switch
             {
-                "Dashboard"     => new DashboardControl(),
-                "Students"      => new StudentsControl(),
-                "Instructors"   => new InstructorsControl(),
-                "Courses"       => new CoursesControl(),
-                "Enrollments"   => new EnrollmentsControl(),
-                "Attendance"    => new AttendanceControl(),
-                "Results"       => new ResultsControl(),
-                "Departments"   => new DepartmentsControl(),
+                "Dashboard" => new DashboardControl(),
+                "Students" => new StudentsControl(),
+                "Instructors" => new InstructorsControl(),
+                "Courses" => new CoursesControl(),
+                "Enrollments" => new EnrollmentsControl(),
+                "Attendance" => new AttendanceControl(),
+                "Results" => new ResultsControl(),
+                "Departments" => new DepartmentsControl(),
                 "Notifications" => new NotificationsControl(),
-                "Audit Log"     => new AuditLogControl(),
-                "Users"         => new UsersControl(),
+                "Audit Log" => new AuditLogControl(),
+                "Users" => new UsersControl(),
                 _ => null,
             };
 
@@ -273,7 +256,6 @@ namespace AcademixPro.Forms
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            // top accent line
             using var brush = new LinearGradientBrush(
                 new Rectangle(0, 0, Width, 3), AppColors.Primary, AppColors.Secondary, 0f);
             e.Graphics.FillRectangle(brush, 0, 0, Width, 3);

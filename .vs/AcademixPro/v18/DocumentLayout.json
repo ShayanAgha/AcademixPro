@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "D:\\Projects\\AcademixPro\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\enrollmentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\enrollmentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\database\\databasesetup.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:database\\databasesetup.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\resultscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\resultscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\helpers\\uihelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:helpers\\uihelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\helpers\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:helpers\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\helpers\\appcolors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:helpers\\appcolors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\userscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\userscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\studentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\studentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\resultscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\resultscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\notificationscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,16 +43,48 @@
       "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|D:\\Projects\\AcademixPro\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|D:\\Projects\\AcademixPro\\forms\\attendancecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\attendancecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\instructorscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\instructorscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|D:\\Projects\\AcademixPro\\forms\\coursescontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\coursescontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\enrollmentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\enrollmentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\departmentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\departmentscontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\dashboardcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\coursescontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\coursescontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\auditlogcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\auditlogcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\database\\sqlqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:database\\sqlqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\database\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:database\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\forms\\attendancecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:forms\\attendancecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|d:\\projects\\academixpro\\database\\databasesetup.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{00270EE7-A41B-403C-7053-92238EEAF4BF}|AcademixPro.csproj|solutionrelative:database\\databasesetup.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,34 +94,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EnrollmentsControl.cs",
-              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\EnrollmentsControl.cs",
-              "RelativeDocumentMoniker": "Forms\\EnrollmentsControl.cs",
-              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\EnrollmentsControl.cs",
-              "RelativeToolTip": "Forms\\EnrollmentsControl.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwBQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-05T14:10:34.578Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StudentsControl.cs",
-              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\StudentsControl.cs",
-              "RelativeDocumentMoniker": "Forms\\StudentsControl.cs",
-              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\StudentsControl.cs",
-              "RelativeToolTip": "Forms\\StudentsControl.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAYwEMAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-05T13:49:32.395Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
@@ -85,73 +111,243 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ResultsControl.cs",
-              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\ResultsControl.cs",
-              "RelativeDocumentMoniker": "Forms\\ResultsControl.cs",
-              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\ResultsControl.cs",
-              "RelativeToolTip": "Forms\\ResultsControl.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAYwDQAAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T10:59:34.735Z",
+              "WhenOpened": "2026-05-06T17:31:05.565Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Session.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Helpers\\Session.cs",
+              "RelativeDocumentMoniker": "Helpers\\Session.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Helpers\\Session.cs",
+              "RelativeToolTip": "Helpers\\Session.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:30:13.22Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppColors.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Helpers\\AppColors.cs",
+              "RelativeDocumentMoniker": "Helpers\\AppColors.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Helpers\\AppColors.cs",
+              "RelativeToolTip": "Helpers\\AppColors.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAAAYAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:28:36.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsersControl.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\UsersControl.cs",
+              "RelativeDocumentMoniker": "Forms\\UsersControl.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\UsersControl.cs",
+              "RelativeToolTip": "Forms\\UsersControl.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAgwPkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:28:01.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentsControl.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\StudentsControl.cs",
+              "RelativeDocumentMoniker": "Forms\\StudentsControl.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\StudentsControl.cs",
+              "RelativeToolTip": "Forms\\StudentsControl.cs",
+              "ViewState": "AgIAAIkBAAAAAAAAAAAkwKEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:26:06.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ResultsControl.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\ResultsControl.cs",
+              "RelativeDocumentMoniker": "Forms\\ResultsControl.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\ResultsControl.cs",
+              "RelativeToolTip": "Forms\\ResultsControl.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAswFoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:25:18.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DatabaseSetup.sql ",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Database\\DatabaseSetup.sql",
+              "RelativeDocumentMoniker": "Database\\DatabaseSetup.sql",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Database\\DatabaseSetup.sql",
+              "RelativeToolTip": "Database\\DatabaseSetup.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-05-06T16:46:35.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UIHelper.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Helpers\\UIHelper.cs",
+              "RelativeDocumentMoniker": "Helpers\\UIHelper.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Helpers\\UIHelper.cs",
+              "RelativeToolTip": "Helpers\\UIHelper.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAwwHUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:30:29.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "NotificationsControl.cs",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\NotificationsControl.cs",
               "RelativeDocumentMoniker": "Forms\\NotificationsControl.cs",
               "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\NotificationsControl.cs",
               "RelativeToolTip": "Forms\\NotificationsControl.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAYwAUAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T10:58:29.03Z"
+              "WhenOpened": "2026-05-06T17:24:43.84Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "MainForm.cs",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\MainForm.cs",
               "RelativeDocumentMoniker": "Forms\\MainForm.cs",
               "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\MainForm.cs",
               "RelativeToolTip": "Forms\\MainForm.cs",
-              "ViewState": "AgIAAP0AAAAAAAAAAAAkwAUAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAPMAAAAAAAAAAADwvwEBAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T10:58:10.385Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-06T17:22:36.165Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CoursesControl.cs [Design]",
+              "DocumentIndex": 10,
+              "Title": "LoginForm.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\LoginForm.cs",
+              "RelativeDocumentMoniker": "Forms\\LoginForm.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\LoginForm.cs",
+              "RelativeToolTip": "Forms\\LoginForm.cs",
+              "ViewState": "AgIAAMMAAAAAAAAAAAAgwNoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:21:27.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "InstructorsControl.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\InstructorsControl.cs",
+              "RelativeDocumentMoniker": "Forms\\InstructorsControl.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\InstructorsControl.cs",
+              "RelativeToolTip": "Forms\\InstructorsControl.cs",
+              "ViewState": "AgIAAPsAAAAAAAAAAAAYwBEBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:19:23.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EnrollmentsControl.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\EnrollmentsControl.cs",
+              "RelativeDocumentMoniker": "Forms\\EnrollmentsControl.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\EnrollmentsControl.cs",
+              "RelativeToolTip": "Forms\\EnrollmentsControl.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAYwG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:17:48.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DepartmentsControl.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\DepartmentsControl.cs",
+              "RelativeDocumentMoniker": "Forms\\DepartmentsControl.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\DepartmentsControl.cs",
+              "RelativeToolTip": "Forms\\DepartmentsControl.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:16:59.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DashboardControl.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\DashboardControl.cs",
+              "RelativeDocumentMoniker": "Forms\\DashboardControl.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\DashboardControl.cs",
+              "RelativeToolTip": "Forms\\DashboardControl.cs",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAowBUBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T17:14:31.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CoursesControl.cs",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\CoursesControl.cs",
               "RelativeDocumentMoniker": "Forms\\CoursesControl.cs",
-              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\CoursesControl.cs [Design]*",
-              "RelativeToolTip": "Forms\\CoursesControl.cs [Design]*",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\CoursesControl.cs",
+              "RelativeToolTip": "Forms\\CoursesControl.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAQwIIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T10:57:15.8Z"
+              "WhenOpened": "2026-05-06T17:12:48.592Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "Forms\\MainForm.cs",
-              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\MainForm.cs [Design]",
-              "RelativeToolTip": "Forms\\MainForm.cs [Design]",
+              "DocumentIndex": 16,
+              "Title": "AuditLogControl.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\AuditLogControl.cs",
+              "RelativeDocumentMoniker": "Forms\\AuditLogControl.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\AuditLogControl.cs",
+              "RelativeToolTip": "Forms\\AuditLogControl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T10:56:39.647Z"
+              "WhenOpened": "2026-05-06T17:12:09.423Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AttendanceControl.cs [Design]",
+              "DocumentIndex": 17,
+              "Title": "SqlQueries.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Database\\SqlQueries.cs",
+              "RelativeDocumentMoniker": "Database\\SqlQueries.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Database\\SqlQueries.cs",
+              "RelativeToolTip": "Database\\SqlQueries.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAkwFsBAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T16:40:45.049Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "D:\\Projects\\AcademixPro\\Database\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "Database\\DatabaseHelper.cs",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Database\\DatabaseHelper.cs",
+              "RelativeToolTip": "Database\\DatabaseHelper.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAwwIsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T16:39:03.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AttendanceControl.cs",
               "DocumentMoniker": "D:\\Projects\\AcademixPro\\Forms\\AttendanceControl.cs",
               "RelativeDocumentMoniker": "Forms\\AttendanceControl.cs",
-              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\AttendanceControl.cs [Design]",
-              "RelativeToolTip": "Forms\\AttendanceControl.cs [Design]",
+              "ToolTip": "D:\\Projects\\AcademixPro\\Forms\\AttendanceControl.cs",
+              "RelativeToolTip": "Forms\\AttendanceControl.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-04T10:56:03.675Z"
+              "WhenOpened": "2026-05-06T16:36:34.826Z"
             }
           ]
         }

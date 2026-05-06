@@ -7,7 +7,6 @@ namespace AcademixPro.Helpers
     /// </summary>
     public static class UIHelper
     {
-        // ── Rounded-rectangle path ────────────────────────────────────
         public static GraphicsPath RoundedRect(Rectangle bounds, int radius)
         {
             var path = new GraphicsPath();
@@ -25,7 +24,6 @@ namespace AcademixPro.Helpers
             return path;
         }
 
-        // ── Style a TextBox ───────────────────────────────────────────
         public static void StyleTextBox(TextBox tb)
         {
             tb.BackColor = AppColors.SurfaceLight;
@@ -34,7 +32,6 @@ namespace AcademixPro.Helpers
             tb.Font = new Font("Segoe UI", 10);
         }
 
-        // ── Style a ComboBox ──────────────────────────────────────────
         public static void StyleComboBox(ComboBox cb)
         {
             cb.BackColor = AppColors.SurfaceLight;
@@ -44,7 +41,6 @@ namespace AcademixPro.Helpers
             cb.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        // ── Style a DataGridView ──────────────────────────────────────
         public static void StyleDataGrid(DataGridView dgv)
         {
             dgv.BackgroundColor = AppColors.Surface;
@@ -78,7 +74,6 @@ namespace AcademixPro.Helpers
             dgv.RowTemplate.Height = 40;
         }
 
-        // ── Create a styled Button ────────────────────────────────────
         public static Button CreateButton(string text, Color backColor, int width = 140, int height = 40)
         {
             var btn = new Button
@@ -97,7 +92,6 @@ namespace AcademixPro.Helpers
             return btn;
         }
 
-        // ── Create a styled Label ─────────────────────────────────────
         public static Label CreateLabel(string text, float fontSize = 10f, Color? color = null)
         {
             return new Label
@@ -110,7 +104,6 @@ namespace AcademixPro.Helpers
             };
         }
 
-        // ── Create a Section Header ───────────────────────────────────
         public static Label CreateSectionHeader(string text)
         {
             return new Label
@@ -123,7 +116,6 @@ namespace AcademixPro.Helpers
             };
         }
 
-        // ── Create a DateTimePicker ───────────────────────────────────
         public static DateTimePicker CreateDatePicker()
         {
             return new DateTimePicker

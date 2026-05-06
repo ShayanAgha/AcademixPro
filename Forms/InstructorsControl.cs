@@ -24,8 +24,6 @@ namespace AcademixPro.Forms
         private void BuildUI()
         {
             Controls.Clear();
-
-            // ── Top bar ───────────────────────────────────────────────
             var topPanel = new Panel { Dock = DockStyle.Top, Height = 56, BackColor = Color.Transparent };
             var btnRefresh = UIHelper.CreateButton("↻ Refresh", AppColors.SurfaceLight, 110, 36);
             btnRefresh.Location = new Point(0, 10);
@@ -34,7 +32,6 @@ namespace AcademixPro.Forms
             topPanel.Controls.Add(btnRefresh);
             Controls.Add(topPanel);
 
-            // ── Split ─────────────────────────────────────────────────
             var split = new SplitContainer
             {
                 Dock = DockStyle.Fill,
@@ -52,13 +49,11 @@ namespace AcademixPro.Forms
                     try { split.SplitterDistance = target; } catch { }
             };
 
-            // Grid
             dgvInstructors = new DataGridView { Dock = DockStyle.Fill };
             UIHelper.StyleDataGrid(dgvInstructors);
             dgvInstructors.SelectionChanged += DgvSelectionChanged;
             split.Panel1.Controls.Add(dgvInstructors);
 
-            // Form
             var formPanel = new Panel
             {
                 Dock = DockStyle.Fill,
@@ -113,7 +108,6 @@ namespace AcademixPro.Forms
             dtpJoining.Size = new Size(w, 30);
             formPanel.Controls.Add(dtpJoining); y += 60;
 
-            // Buttons
             var btnAdd = UIHelper.CreateButton("➕ Add", AppColors.Primary, 130, 38);
             btnAdd.Location = new Point(20, y);
             btnAdd.Click += BtnAdd_Click;
@@ -152,15 +146,15 @@ namespace AcademixPro.Forms
         {
             var map = new Dictionary<string, string>
             {
-                ["InstructorCode"]   = "Instructor ID",
-                ["FullName"]         = "Full Name",
-                ["Email"]            = "Email",
-                ["Phone"]            = "Phone",
-                ["Specialization"]   = "Specialization",
-                ["Department"]       = "Department",
-                ["JoiningDate"]      = "Joining Date",
-                ["IsActive"]         = "Active",
-                ["CoursesAssigned"]  = "Courses",
+                ["InstructorCode"] = "Instructor ID",
+                ["FullName"] = "Full Name",
+                ["Email"] = "Email",
+                ["Phone"] = "Phone",
+                ["Specialization"] = "Specialization",
+                ["Department"] = "Department",
+                ["JoiningDate"] = "Joining Date",
+                ["IsActive"] = "Active",
+                ["CoursesAssigned"] = "Courses",
             };
             foreach (var kv in map)
                 if (dgvInstructors.Columns.Contains(kv.Key))

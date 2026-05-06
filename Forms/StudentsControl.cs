@@ -73,13 +73,11 @@ namespace AcademixPro.Forms
                     try { splitContainer.SplitterDistance = target; } catch { }
             };
 
-            // ── Data Grid ─────────────────────────────────────────────
             dgvStudents = new DataGridView { Dock = DockStyle.Fill };
             UIHelper.StyleDataGrid(dgvStudents);
             dgvStudents.SelectionChanged += DgvStudents_SelectionChanged;
             splitContainer.Panel1.Controls.Add(dgvStudents);
 
-            // ── Form Panel ────────────────────────────────────────────
             var formPanel = new Panel
             {
                 Dock = DockStyle.Fill,
@@ -103,7 +101,6 @@ namespace AcademixPro.Forms
             int y = 52;
             int lblX = 20, inputX = 20, inputW = 280;
 
-            // Student Code (auto-generated)
             formPanel.Controls.Add(CreateFieldLabel("Student Code", lblX, y));
             lblStudentCode = new Label
             {
@@ -117,25 +114,21 @@ namespace AcademixPro.Forms
             formPanel.Controls.Add(lblStudentCode);
             y += 54;
 
-            // Full Name
-            formPanel.Controls.Add(CreateFieldLabel("Full Name *", lblX, y));
+             formPanel.Controls.Add(CreateFieldLabel("Full Name *", lblX, y));
             txtName = CreateStyledTextBox(inputX, y + 22, inputW);
             formPanel.Controls.Add(txtName);
             y += 60;
 
-            // Email
-            formPanel.Controls.Add(CreateFieldLabel("Email *", lblX, y));
+             formPanel.Controls.Add(CreateFieldLabel("Email *", lblX, y));
             txtEmail = CreateStyledTextBox(inputX, y + 22, inputW);
             formPanel.Controls.Add(txtEmail);
             y += 60;
 
-            // Phone
             formPanel.Controls.Add(CreateFieldLabel("Phone", lblX, y));
             txtPhone = CreateStyledTextBox(inputX, y + 22, inputW);
             formPanel.Controls.Add(txtPhone);
             y += 60;
 
-            // Gender
             formPanel.Controls.Add(CreateFieldLabel("Gender", lblX, y));
             cmbGender = new ComboBox
             {
@@ -148,7 +141,6 @@ namespace AcademixPro.Forms
             formPanel.Controls.Add(cmbGender);
             y += 60;
 
-            // DOB
             formPanel.Controls.Add(CreateFieldLabel("Date of Birth", lblX, y));
             dtpDOB = UIHelper.CreateDatePicker();
             dtpDOB.Location = new Point(inputX, y + 22);
@@ -156,7 +148,6 @@ namespace AcademixPro.Forms
             formPanel.Controls.Add(dtpDOB);
             y += 60;
 
-            // Department
             formPanel.Controls.Add(CreateFieldLabel("Department *", lblX, y));
             cmbDept = new ComboBox
             {
@@ -168,7 +159,6 @@ namespace AcademixPro.Forms
             formPanel.Controls.Add(cmbDept);
             y += 60;
 
-            // Semester
             formPanel.Controls.Add(CreateFieldLabel("Semester", lblX, y));
             cmbSemester = new ComboBox
             {
@@ -182,7 +172,6 @@ namespace AcademixPro.Forms
             formPanel.Controls.Add(cmbSemester);
             y += 60;
 
-            // Admission Date
             formPanel.Controls.Add(CreateFieldLabel("Admission Date", lblX, y));
             dtpAdmission = UIHelper.CreateDatePicker();
             dtpAdmission.Location = new Point(inputX, y + 22);
@@ -190,13 +179,11 @@ namespace AcademixPro.Forms
             formPanel.Controls.Add(dtpAdmission);
             y += 60;
 
-            // Address
             formPanel.Controls.Add(CreateFieldLabel("Address", lblX, y));
             txtAddress = CreateStyledTextBox(inputX, y + 22, inputW);
             formPanel.Controls.Add(txtAddress);
             y += 60;
 
-            // Buttons
             var btnAdd = UIHelper.CreateButton("➕ Add", AppColors.Primary, 130, 38);
             btnAdd.Location = new Point(20, y);
             btnAdd.Click += BtnAdd_Click;
@@ -223,7 +210,6 @@ namespace AcademixPro.Forms
             GenerateStudentCode();
         }
 
-        // ── Data Loading ──────────────────────────────────────────────
         private void LoadStudents()
         {
             dgvStudents.DataSource = DatabaseHelper.ExecuteQuery(SqlQueries.Students.GetAll);
@@ -280,7 +266,6 @@ namespace AcademixPro.Forms
             ApplyStudentColumnHeaders();
         }
 
-        // ── Selection Changed ─────────────────────────────────────────
         private void DgvStudents_SelectionChanged(object? sender, EventArgs e)
         {
             if (dgvStudents.CurrentRow == null) return;
@@ -313,7 +298,6 @@ namespace AcademixPro.Forms
                 cmbSemester.SelectedItem = Convert.ToInt32(row.Cells["Semester"].Value);
         }
 
-        // ── CRUD Operations ───────────────────────────────────────────
         private void BtnAdd_Click(object? sender, EventArgs e)
         {
             if (!ValidateForm()) return;
@@ -406,7 +390,6 @@ namespace AcademixPro.Forms
             GenerateStudentCode();
         }
 
-        // ── Helpers ───────────────────────────────────────────────────
         private Label CreateFieldLabel(string text, int x, int y)
         {
             return new Label

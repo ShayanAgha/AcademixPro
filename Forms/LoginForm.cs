@@ -21,7 +21,6 @@ namespace AcademixPro.Forms
 
         private void InitializeUI()
         {
-            // ── Form Setup ────────────────────────────────────────────
             Text = "AcademixPro — Login";
             Size = new Size(520, 620);
             StartPosition = FormStartPosition.CenterScreen;
@@ -29,7 +28,6 @@ namespace AcademixPro.Forms
             BackColor = AppColors.Background;
             DoubleBuffered = true;
 
-            // ── Close button ──────────────────────────────────────────
             var btnClose = new Label
             {
                 Text = "✕",
@@ -44,7 +42,6 @@ namespace AcademixPro.Forms
             btnClose.MouseLeave += (_, __) => btnClose.ForeColor = AppColors.TextMuted;
             Controls.Add(btnClose);
 
-            // ── Card Panel ────────────────────────────────────────────
             panelCard = new Panel
             {
                 Size = new Size(420, 440),
@@ -53,7 +50,6 @@ namespace AcademixPro.Forms
             };
             Controls.Add(panelCard);
 
-            // ── Logo / Title ──────────────────────────────────────────
             var lblLogo = new Label
             {
                 Text = "🎓",
@@ -78,7 +74,6 @@ namespace AcademixPro.Forms
 
 
 
-            // ── Username ──────────────────────────────────────────────
             var lblUser = UIHelper.CreateLabel("Username", 9.5f, AppColors.TextSecondary);
             lblUser.Location = new Point(40, 165);
             panelCard.Controls.Add(lblUser);
@@ -94,7 +89,6 @@ namespace AcademixPro.Forms
             };
             panelCard.Controls.Add(txtUsername);
 
-            // ── Password ──────────────────────────────────────────────
             var lblPass = UIHelper.CreateLabel("Password", 9.5f, AppColors.TextSecondary);
             lblPass.Location = new Point(40, 235);
             panelCard.Controls.Add(lblPass);
@@ -111,7 +105,6 @@ namespace AcademixPro.Forms
             };
             panelCard.Controls.Add(txtPassword);
 
-            // ── Login Button ──────────────────────────────────────────
             btnLogin = new Button
             {
                 Text = "Sign In",
@@ -128,7 +121,6 @@ namespace AcademixPro.Forms
             btnLogin.Click += BtnLogin_Click;
             panelCard.Controls.Add(btnLogin);
 
-            // ── Error Label ───────────────────────────────────────────
             lblError = new Label
             {
                 Text = "",
@@ -142,21 +134,17 @@ namespace AcademixPro.Forms
             };
             panelCard.Controls.Add(lblError);
 
-            // ── Enter key ─────────────────────────────────────────────
             AcceptButton = btnLogin;
         }
 
-        // ── Paint rounded card ────────────────────────────────────────
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            // subtle gradient top bar
             var rect = new Rectangle(0, 0, Width, 6);
             using var brush = new LinearGradientBrush(rect, AppColors.Primary, AppColors.Secondary, 0f);
             e.Graphics.FillRectangle(brush, rect);
         }
 
-        // ── Login Logic ───────────────────────────────────────────────
         private void BtnLogin_Click(object? sender, EventArgs e)
         {
             lblError.Text = "";
@@ -188,7 +176,6 @@ namespace AcademixPro.Forms
                 Session.Email    = row["Email"].ToString()!;
                 Session.Role     = row["Role"].ToString()!;
 
-                // Update last login
                 DatabaseHelper.ExecuteNonQuery(SqlQueries.Auth.UpdateLastLogin,
                     new[] { new SqlParameter("@UserID", Session.UserID) });
 
@@ -213,8 +200,7 @@ namespace AcademixPro.Forms
             foreach (byte b in bytes) sb.Append(b.ToString("X2"));
             return sb.ToString();
         }
-
-        // ── Allow dragging the borderless form ────────────────────────
+        
         private Point _dragOffset;
         protected override void OnMouseDown(MouseEventArgs e)
         {

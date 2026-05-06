@@ -22,7 +22,6 @@ namespace AcademixPro.Forms
         {
             Controls.Clear();
 
-            // ── Header bar ────────────────────────────────────────────
             var header = new Panel
             {
                 Dock = DockStyle.Top,
@@ -42,7 +41,6 @@ namespace AcademixPro.Forms
             });
             Controls.Add(header);
 
-            // ── Filter bar ────────────────────────────────────────────
             var filterBar = new Panel
             {
                 Dock = DockStyle.Top,
@@ -51,7 +49,6 @@ namespace AcademixPro.Forms
                 Padding = new Padding(16, 8, 16, 8),
             };
 
-            // Course label + combo
             filterBar.Controls.Add(new Label
             {
                 Text = "Course:",
@@ -72,7 +69,6 @@ namespace AcademixPro.Forms
             cmbCourse.SelectedIndexChanged += (_, __) => LoadAttendance();
             filterBar.Controls.Add(cmbCourse);
 
-            // Date label + picker
             filterBar.Controls.Add(new Label
             {
                 Text = "Date:",
@@ -88,19 +84,16 @@ namespace AcademixPro.Forms
             dtpDate.Size = new Size(160, 30);
             filterBar.Controls.Add(dtpDate);
 
-            // Mark Attendance button
             var btnMark = UIHelper.CreateButton("✅  Mark Attendance", AppColors.Primary, 180, 36);
             btnMark.Location = new Point(568, 24);
             btnMark.Click += BtnMark_Click;
             filterBar.Controls.Add(btnMark);
 
-            // Summary button
             var btnSummary = UIHelper.CreateButton("📊  Summary", AppColors.CardPurple, 130, 36);
             btnSummary.Location = new Point(758, 24);
             btnSummary.Click += BtnSummary_Click;
             filterBar.Controls.Add(btnSummary);
 
-            // Refresh button
             var btnRefresh = UIHelper.CreateButton("↻ Refresh", AppColors.SurfaceLight, 100, 36);
             btnRefresh.ForeColor = AppColors.TextSecondary;
             btnRefresh.Location = new Point(898, 24);
@@ -111,7 +104,6 @@ namespace AcademixPro.Forms
             header.BringToFront();
             filterBar.BringToFront();
 
-            // ── Tab control ───────────────────────────────────────────
             tabMain = new TabControl
             {
                 Dock = DockStyle.Fill,
@@ -123,7 +115,6 @@ namespace AcademixPro.Forms
             tabMain.DrawItem += TabMain_DrawItem;
             Controls.Add(tabMain);
 
-            // Tab 1 – Mark Attendance
             var tabMark = new TabPage
             {
                 Text = "📋  Mark Attendance",
@@ -131,7 +122,6 @@ namespace AcademixPro.Forms
                 Padding = new Padding(8),
             };
 
-            // Instruction label
             var lblHint = new Label
             {
                 Text = "Select a course above, then choose Present / Absent / Late for each student and click Mark Attendance.",
@@ -155,7 +145,6 @@ namespace AcademixPro.Forms
             lblHint.BringToFront();
             tabMain.TabPages.Add(tabMark);
 
-            // Tab 2 – History
             var tabHistory = new TabPage
             {
                 Text = "📜  Attendance History",
@@ -169,7 +158,6 @@ namespace AcademixPro.Forms
             tabHistory.Controls.Add(dgvAttendance);
             tabMain.TabPages.Add(tabHistory);
 
-            // bring to correct z-order
             tabMain.SendToBack();
 
             LoadCourses();
@@ -202,7 +190,6 @@ namespace AcademixPro.Forms
             if (cmbCourse.SelectedValue == null || cmbCourse.SelectedValue is DataRowView) return;
             int courseId = Convert.ToInt32(cmbCourse.SelectedValue);
 
-            // ── Enrolled students for marking ──────────────────────────
             var enrolled = DatabaseHelper.ExecuteQuery(
                 SqlQueries.Attendance.GetEnrolledForCourse,
                 new[] { new SqlParameter("@CourseID", courseId) });
@@ -215,16 +202,13 @@ namespace AcademixPro.Forms
             if (!enrolled.Columns.Contains("Remarks"))
                 enrolled.Columns.Add("Remarks", typeof(string));
 
-            // Rebind without triggering column rebuild if not needed
             dgvMark.DataSource = null;
             dgvMark.Columns.Clear();
             dgvMark.DataSource = enrolled;
 
-            // Hide internal ID
             if (dgvMark.Columns.Contains("EnrollmentID"))
                 dgvMark.Columns["EnrollmentID"].Visible = false;
 
-            // Friendly headers + read-only columns
             if (dgvMark.Columns.Contains("StudentCode"))
             {
                 dgvMark.Columns["StudentCode"].HeaderText = "Student ID";
@@ -238,7 +222,6 @@ namespace AcademixPro.Forms
                 dgvMark.Columns["StudentName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
 
-            // Replace Status text column with a ComboBox column
             if (dgvMark.Columns.Contains("Status"))
             {
                 int statusIdx = dgvMark.Columns["Status"].Index;
@@ -257,7 +240,6 @@ namespace AcademixPro.Forms
                 cmbCol.Items.AddRange("Present", "Absent", "Late");
                 dgvMark.Columns.Insert(statusIdx, cmbCol);
 
-                // Set default value in all rows
                 foreach (DataGridViewRow row in dgvMark.Rows)
                 {
                     if (row.Cells["Status"].Value == null || row.Cells["Status"].Value == DBNull.Value)
@@ -271,7 +253,6 @@ namespace AcademixPro.Forms
                 dgvMark.Columns["Remarks"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
 
-            // ── History ────────────────────────────────────────────────
             var history = DatabaseHelper.ExecuteQuery(
                 SqlQueries.Attendance.GetByCourse,
                 new[] { new SqlParameter("@CourseID", courseId) });
@@ -282,7 +263,6 @@ namespace AcademixPro.Forms
             if (dgvAttendance.Columns.Contains("EnrollmentID"))
                 dgvAttendance.Columns["EnrollmentID"].Visible = false;
 
-            // Friendly headers for history
             var histMap = new Dictionary<string, string>
             {
                 ["StudentCode"]  = "Student ID",
@@ -300,7 +280,6 @@ namespace AcademixPro.Forms
         {
             if (dgvMark.Rows.Count == 0) { MessageBox.Show("No students to mark. Select a course first.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
 
-            // Commit any in-progress cell edit
             dgvMark.EndEdit();
 
             int count = 0;
@@ -311,7 +290,6 @@ namespace AcademixPro.Forms
                 if (row.IsNewRow) continue;
 
                 object? enrollVal = null;
-                // Try DataPropertyName binding first
                 if (row.DataBoundItem is DataRowView drv && drv.Row.Table.Columns.Contains("EnrollmentID"))
                     enrollVal = drv["EnrollmentID"];
                 else
@@ -348,7 +326,6 @@ namespace AcademixPro.Forms
                 MessageBox.Show($"Attendance marked for {count} student(s).", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             LoadAttendance();
-            // Switch to history tab
             tabMain.SelectedIndex = 1;
         }
 
@@ -357,7 +334,6 @@ namespace AcademixPro.Forms
             var dt = DatabaseHelper.ExecuteQuery(SqlQueries.Attendance.GetSummary);
             dgvAttendance.DataSource = dt;
 
-            // Friendly headers for summary
             var sumMap = new Dictionary<string, string>
             {
                 ["StudentCode"]  = "Student ID",
