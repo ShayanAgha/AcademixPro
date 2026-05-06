@@ -193,7 +193,7 @@ After running the database setup script, use the seeded admin credentials:
 | Field | Value |
 |-------|-------|
 | **Username** | `admin` |
-| **Password** | `admin123` |
+| **Password** | `admin@123` |
 
 ---
 
